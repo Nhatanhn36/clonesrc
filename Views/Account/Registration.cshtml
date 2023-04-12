@@ -1,0 +1,105 @@
+﻿@model HealthInsurance.Models.UserLogin;
+
+@{
+    ViewData["Title"] = "Registration";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Login Page </title>
+    <style>
+        * {
+            background-color: rgb(252, 254, 255);
+        }
+
+        button {
+            width: 40%;
+            color: black;
+            padding: 15px;
+            margin: 10px 30%;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            background-color: #ffdddd !important;
+        }
+
+        form {
+            margin: 0 200px;
+        }
+
+        input[type=text], input[type=password], input[type=email], input[type=textarea] {
+            width: 100%;
+            margin: 8px 0;
+            padding: 12px 20px;
+            display: inline-block;
+            box-sizing: border-box;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            opacity: 0.7;
+        }
+
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            margin: 10px 5px;
+        }
+
+
+        .container input::placeholder {
+            font-size: 18px;
+        }
+
+        .container {
+            padding: 25px;
+            background-color: rgb(255, 251, 251);
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: 500;
+            box-shadow: rgba(0, 0, 0, 0.35) 5px 7px 15px;
+        }
+    </style>
+</head>
+<body>
+    <center> <h1> Health Insurance Register Form </h1> </center>
+
+    <form asp-controller="Account" asp-action="Registration" method="post">
+
+        <div class="container">
+            <label>Username : </label>
+            <input type="text" placeholder="Enter Username" name="username" asp-for="Username" required>
+            <label>Password : </label>
+            <input id="password" type="password" placeholder="Enter Password" name="password" asp-for="Password" required>
+            <label>Confirmpassword : </label>
+            <input id="confirmpassword" type="password" placeholder="Enter Password" name="confirmpassword" asp-for="Password" required>
+            <button type="submit">Register</button>
+            <input type="checkbox" checked="checked"> Remember me
+            <button type="button" class="cancelbtn"> Cancel</button>
+            Forgot <a href="forgotpass/pass"> password? </a>
+            <p class="login">You have an accound <a asp-controller="Account" asp-action="Login">Login Here</a></p>
+        </div>
+    </form>
+
+    <script>
+        var password = document.getElementById("password")
+            , confirmpassword = document.getElementById("confirmpassword");
+
+        function validatePassword() {
+            if (password.value != confirmpassword.value) {
+                confirmpassword.setCustomValidity("Passwords Don't Match");
+            } else {
+                confirmpassword.setCustomValidity('');
+            }
+        }
+
+        password.onchange = validatePassword;
+        confirmpassword.onkeyup = validatePassword;
+    </script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+﻿@model HealthInsurance.Models.Employee
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #333;
+            color: white;
+        }
+
+        .header {
+            overflow: hidden;
+            background-color: #f1f1f1;
+            padding: 20px 10px;
+        }
+
+            .header a {
+                float: left;
+                color: black;
+                text-align: center;
+                padding: 12px;
+                text-decoration: none;
+                font-size: 18px;
+                line-height: 25px;
+                border-radius: 4px;
+            }
+
+                .header a.logo {
+                    font-size: 25px;
+                    font-weight: bold;
+                }
+
+                .header a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+                .header a.active {
+                    background-color: #333;
+                    color: white;
+                }
+
+        .header-right {
+            float: right;
+        }
+
+        .media screen and (max-width: 500px) {
+            .header a
+
+        {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+
+        .header-right {
+            float: none;
+        }
+
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .table {
+            box-shadow: rgba(252, 252, 252, 0) 5px 7px 15px;
+            padding: 10px 30px 50px;
+            border-collapse: collapse;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid white;
+            text-align: left;
+            padding: 8px;
+        }
+
+        thead:nth-child(1) th {
+            border: 2px solid #666;
+        }
+
+        thead:nth-child(1) {
+            background-color: white;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a asp-action="Index" class="logo">Health Insurance - Admin</a>
+        <div class="header-right">
+            <a class="active" asp-action="Index" asp-controller="Home">Home</a>
+            <a asp-action="Index" asp-controller="Policies">Policy</a>
+            <a asp-action="Index" asp-controller="Companies">Company</a>
+            <a asp-action="Index" asp-controller="Employee">Employees</a>
+            <a asp-action="RequestDetails" asp-controller="Policies">Request</a>
+            <a asp-action="Logout" asp-controller="Account">Logout</a>
+        </div>
+    </div>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+            <form asp-action="UpdateEmployeeDetails">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EmployeeId" />
+            <div class="form-group">
+                <label asp-for="Designation" class="control-label"></label>
+                <input asp-for="Designation" class="form-control" />
+                <span asp-validation-for="Designation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Firstname" class="control-label"></label>
+                <input asp-for="Firstname" class="form-control" />
+                <span asp-validation-for="Firstname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lastname" class="control-label"></label>
+                <input asp-for="Lastname" class="form-control" />
+                <span asp-validation-for="Lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactNo" class="control-label"></label>
+                <input asp-for="ContactNo" class="form-control" />
+                <span asp-validation-for="ContactNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Joindate" class="control-label"></label>
+                <input asp-for="Joindate" class="form-control" />
+                <span asp-validation-for="Joindate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdAccount" class="control-label"></label>
+                <select asp-for="IdAccount" class="form-control" asp-items="ViewBag.IdAccount"></select>
+                <span asp-validation-for="IdAccount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PolicyId" class="control-label"></label>
+                <select asp-for="PolicyId" class="form-control" asp-items="ViewBag.PolicyId"></select>
+                <span asp-validation-for="PolicyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PolicyStatus" class="control-label"></label>
+                <input asp-for="PolicyStatus" class="form-control" />
+                <span asp-validation-for="PolicyStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+</html>

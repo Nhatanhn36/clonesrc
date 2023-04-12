@@ -1,0 +1,194 @@
+﻿@model IEnumerable<HealthInsurance.Models.PoliciesReqDetail>
+
+@{
+    ViewData["Title"] = "RequestDetails";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #333;
+            color: white;
+        }
+
+        .header {
+            overflow: hidden;
+            background-color: #f1f1f1;
+            padding: 20px 10px;
+        }
+
+            .header a {
+                float: left;
+                color: black;
+                text-align: center;
+                padding: 12px;
+                text-decoration: none;
+                font-size: 18px;
+                line-height: 25px;
+                border-radius: 4px;
+            }
+
+                .header a.logo {
+                    font-size: 25px;
+                    font-weight: bold;
+                }
+
+                .header a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+                .header a.active {
+                    background-color: #333;
+                    color: white;
+                }
+
+        .header-right {
+            float: right;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .table {
+            box-shadow: rgba(252, 252, 252, 0) 5px 7px 15px;
+            padding: 10px 30px 50px;
+            border-collapse: collapse;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid white;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(1) th {
+            border: 2px solid #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a asp-action="Index" class="logo">Health Insurance - Admin</a>
+        <div class="header-right">
+            <a class="active" asp-action="Index" asp-controller="Home">Home</a>
+            <a asp-action="Index" asp-controller="Policies">Policy</a>
+            <a asp-action="Index" asp-controller="Companies">Company</a>
+            <a asp-action="Index" asp-controller="Employee">Employees</a>
+            <a asp-action="RequestDetails" asp-controller="Policies">Request</a>
+            <a asp-action="Logout" asp-controller="Account">Logout</a>
+        </div>
+    </div>
+    <h1 style="padding:0  250px;">Request Page</h1>
+    <!-- <a style="padding:0 50px;font-size: 20px; font-weight: bold; text-decoration: underline; " href="policyadd.html">Go To Add Policy Page &#8594;</a> -->
+    <div class="table">
+
+
+        <div class="domain-price_main ">
+
+
+            <table class="table">
+                <thead style="background-color: white;color: black">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.RequestId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.RequestDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EmployeeId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Emi)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PolicyId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PolicyName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PolicyAmount)
+                        <th>
+                                @Html.DisplayNameFor(model => model.CompanyId)
+                        </th>
+                        <th>
+                                @Html.DisplayNameFor(model => model.CompanyName)
+                        </th>
+
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RequestId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RequestDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmployeeId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Emi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PolicyId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PolicyName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PolicyAmount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CompanyId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CompanyName)
+                            </td>
+
+                            <td>
+                                <a asp-action="Adjust" asp-route-id="@item.RequestId">Adjust</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+    </div>
+
+</body>
+</html>

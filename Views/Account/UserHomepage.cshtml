@@ -1,0 +1,203 @@
+﻿@{
+    ViewData["Title"] = "UserHomepage";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Health Insurance</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400|Montserrat:700' rel='stylesheet' type='text/css' />
+	
+	<script src="https://2-22-4-dot-lead-pages.appspot.com/static/lp918/min/jquery-1.9.1.min.js"></script>
+	<script src="https://2-22-4-dot-lead-pages.appspot.com/static/lp918/min/html5shiv.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source Sans Pro">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      html {
+      scroll-behavior: smooth;
+    }
+    h1,h2,h3,h4,h5,h6 {font-family: "Roboto"}
+    body {font-family: "Source Sans Pro"}
+    .dropbtn{
+      
+      color: black;
+      
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .dropdown {
+         position: absolute;
+    display: inline;
+    
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #ddd;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      color: black;
+      padding: 5px 10px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .dropdown-content a:hover {background-color: #f1f1f1}
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown:hover .dropbtn {
+      background-color: dodgerblue;
+      border-radius: 3px;
+    }
+    .nav-item:hover{
+        background-color:dodgerblue ;
+        color: white !important;
+        border-radius: 3px;
+
+    }
+    .container{
+      min-height: 650px ;
+    }
+    
+body {
+
+	font-family: 'Akkurat-Regular', sans-serif;
+	background-color: #fffffe;
+	color: #1a1a1a;
+	text-align: center;
+	word-wrap: break-word;
+	-webkit-font-smoothing: antialiased
+}
+
+
+.site-header {
+	margin: 0 auto;
+	padding: 80px 0 0;
+	max-width: 1000px;
+}
+.site-header__title {
+	margin: 0;
+	font-family: Montserrat, sans-serif;
+	font-size: 2.5rem;
+	font-weight: 700;
+	line-height: 1.1;
+	text-transform: uppercase;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+}
+
+
+.main-content {
+	margin: 0 auto;
+	max-width: 820px;
+}
+.main-content__checkmark {
+	font-size: 4.0625rem;
+	line-height: 1;
+	color: #24b663;
+}
+.main-content__body {
+	margin: 20px 0 0;
+	font-size: 1rem;
+	line-height: 1.4;
+}
+
+.site-footer {
+	margin: 0 auto;
+	padding: 80px 0 25px;
+	padding: 0;
+	max-width: 820px;
+}
+.site-footer__fineprint {
+	font-size: 0.9375rem;
+	line-height: 1.3;
+	font-weight: 300;
+}
+
+
+
+    </style>
+  </head>
+
+<body class="w3-light-white w3-margin">
+
+    <!-- Navigation bar with links -->
+    <div class="w3-bar w3-white w3-text-black">
+        <h2 class="w3-left w3-tag w3-pale-red w3-round">Health Insurance</h2>
+        <li class="dropdown nav-item">
+            <a class="w3-hide-small w3-bar-item w3-button w3-mobile w3-medium w3-right" style="margin-top:10px;" class="dropbtn nav-link text-dark">ACCCOUNT</a>
+            <div class="dropdown-content">
+                <a class="w3-hide-small w3-bar-item w3-button w3-mobile w3-medium " style="margin-top:10px;" asp-area="" asp-controller="Home" asp-action="LogOut">Change Password</a>
+                <a class="w3-hide-small w3-bar-item w3-button w3-mobile w3-medium" style="margin-top:10px;" asp-area="" asp-controller="Account" asp-action="Logout">Log out</a>
+            </div>
+        </li>
+        <a class="w3-hide-small w3-bar-item w3-button w3-mobile w3-medium w3-right" style="margin-top:10px;">CONTACT</a>
+        <a class="w3-hide-small w3-bar-item w3-button w3-mobile w3-medium w3-right" style="margin-top:10px;">ABOUT US</a>
+        <a class="w3-hide-small w3-bar-item w3-button w3-mobile w3-medium w3-right" style="margin-top:10px;" asp-action="Index" asp-controller="PoliciesEmp">POLICIES</a>
+        <a class="w3-hide-small w3-bar-item w3-button w3-mobile w3-medium w3-right" asp-area="" asp-controller="Home" asp-action="Index" style="margin-top:10px;">HOME</a>
+
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-medium w3-hide-large" style="margin-top:10px;" onclick="myFunction()">&#9776;</a>
+    </div>
+
+
+
+    <div class="container">
+        <header class="site-header" id="header">
+            <h1 style="font-size: 70px; display: inline;" class="site-header__title" data-lead-id="site-header-title">Wellcome To Health Insurance</h1>
+        </header>
+
+        <div class="main-content">
+            <i class="fa fa-check main-content__checkmark" id="checkmark"></i>
+            <p style="font-size: 18px;" class="main-content__body" data-lead-id="main-content-body">
+                Welcome to our website, where you can find advanced solutions for Employee Health Insurance. With our online Health Insurance system, we are committed to helping organizations manage and provide health insurance to their employees more efficiently and conveniently than ever before.Our online Health Insurance system helps organizations reduce health-related risks and increase the health and welfare of their employees. Furthermore, the system saves time and reduces manual work for organizations, increasing productivity and work efficiency.
+
+            </p>
+            <a style="padding:0 50px;font-size: 20px; font-weight: bold; text-decoration: underline; " href="policy.html">Go To See Policy Insurance &#8594;</a>
+        </div>
+
+    </div>
+
+
+        <!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. -->
+        <footer class="w3-container w3-pale-red w3-center w3-margin-top">
+            <p>Find us on social media.</p>
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-snapchat w3-hover-opacity"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+            <p class="w3-small">This website was made with W3schools Spaces. Make your own free website today!</p>
+            <a class="w3-button w3-round-xxlarge w3-small w3-white w3-margin-bottom" href="https://www.w3schools.com/spaces" target="_blank">Start now</a> <!-- End footer -->
+        </footer>
+
+        <script>
+            function myFunction() {
+                var x = document.getElementById("demo");
+                if (x.className.indexOf("w3-show") == -1) {
+                    x.className += " w3-show";
+                } else {
+                    x.className = x.className.replace(" w3-show", "");
+                }
+            }
+        </script>
+
+</body>
+</html>
